@@ -54,3 +54,31 @@ Many parallels to our system and modus operandi were inspired by the AVE (Electr
 ## Glossary
 - FBCA = French-Britannic Crossing Authorization
 - ATFB = Autorisation de Traverse Franco-Britanique
+
+
+## Definition of ready
+
+Une user/technical story est prête dès lors qu'il contient:
+- un titre en français || anglais
+- le détails de la user story ("En tant que", "Afin de",...)
+- les critères d'acceptation
+- les tests d'acceptation (si il y en a)
+- les labels sur:
+    - le sizing
+    - le t-shirt sizing
+    - le moscow
+    - l'épic
+    - ts ou us
+
+Une spike est prête à partir du moment où l'issue associée contient:
+	- une description des recherches à effectuer.
+
+
+## Definition of done
+
+Une user/technical story est finie dès lors:
+
+- les tests d'acceptation passent
+- la story est intégré dans la branche principale
+- les nouveaux et anciens tests unitaires
+- le build de l'intégration continue passe

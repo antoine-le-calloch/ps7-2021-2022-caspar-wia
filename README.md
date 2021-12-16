@@ -9,7 +9,7 @@ Welcome to our PS7 project based on the Polyfrontier common subject.
 <!--ts-->
    * [FBCA Basics](#fbca-basics)
    * [FBCA Request (personal)](#fbca-request-personal)
-   * [FBCA Request (professional/freight)](#fbca-request-professional-freight)
+   * [FBCA Request (professional/freight)](#fbca-request-professionalfreight)
    * [FBCA Control (both)](#fbca-control-both)
    * [Resources](#resources)
    * [Glossary](#glossary)

@@ -4,6 +4,19 @@
 
 Welcome to our PS7 project based on the Polyfrontier common subject.
 
+## Table of contents
+
+<!--ts-->
+   * [FBCA Basics](#fbca-basics)
+   * [FBCA Request (personal)](#fbca-request-personal)
+   * [FBCA Request (professional/freight)](#fbca-request-professional-freight)
+   * [FBCA Control (both)](#fbca-control-both)
+   * [Resources](#resources)
+   * [Glossary](#glossary)
+   * [Definition of ready](#definition-of-ready)
+   * [Definition of done](#definition-of-done)
+<!--te-->
+
 ## FBCA Basics
 
 - An FBCA (FTBA in French) is the French-Britannic Crossing Authorization.
@@ -57,28 +70,25 @@ Many parallels to our system and modus operandi were inspired by the AVE (Electr
 
 
 ## Definition of ready
+A user/technical story is ready when it contains
+- a title in French || English
+- the details of the user story ("As", "In order to",...)
+- the acceptance criteria
+- the acceptance tests (if any)
+- the labels on:
+    - the sizing
+    - the t-shirt sizing
+    - the moscow
+    - the epic
+    - TS or US
 
-Une user/technical story est prête dès lors qu'il contient:
-- un titre en français || anglais
-- le détails de la user story ("En tant que", "Afin de",...)
-- les critères d'acceptation
-- les tests d'acceptation (si il y en a)
-- les labels sur:
-    - le sizing
-    - le t-shirt sizing
-    - le moscow
-    - l'épic
-    - ts ou us
-
-Une spike est prête à partir du moment où l'issue associée contient:
-	- une description des recherches à effectuer.
-
+A spike is ready as soon as the associated issue contains
+	- a description of the search to be performed.
 
 ## Definition of done
+A user/technical story is finished when
 
-Une user/technical story est finie dès lors:
-
-- les tests d'acceptation passent
-- la story est intégré dans la branche principale
-- les nouveaux et anciens tests unitaires
-- le build de l'intégration continue passe
+- the acceptance tests are passed
+- the story is integrated in the main branch
+- the new and old unit tests
+- the build of the continuous integration passes

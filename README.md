@@ -90,5 +90,5 @@ A user/technical story is finished when
 
 - the acceptance tests are passed
 - the story is integrated in the main branch
-- the new and old unit tests
+- the new and old unit tests pass
 - the build of the continuous integration passes

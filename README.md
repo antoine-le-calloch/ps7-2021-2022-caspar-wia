@@ -15,6 +15,7 @@ Welcome to our PS7 project based on the Polyfrontier common subject.
    * [Glossary](#glossary)
    * [Definition of ready](#definition-of-ready)
    * [Definition of done](#definition-of-done)
+   * [Sprint](#definition-of-done)
 <!--te-->
 
 ## FBCA Basics
@@ -92,3 +93,10 @@ A user/technical story is finished when
 - the story is integrated in the main branch
 - the new and old unit tests pass
 - the build of the continuous integration passes
+
+## Sprints
+
+|       Sprint        | #1  | #2  | #3  |
+|        :---:        | :-: | :-: | :-: |
+| Amount of planified points |  91 |  X |     |
+| Amount of points delivered  |  83 |     |     |

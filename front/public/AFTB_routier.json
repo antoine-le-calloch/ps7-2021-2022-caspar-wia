@@ -1,0 +1,52 @@
+{
+    "id" : 357564334,
+    "company_identification_number" : 36252187900034,
+    "first_name": "Thibault",
+    "last_name" : "GARROT",
+    "email" : "thibault.garrot@gmail.com",
+    "phone_number" : "0762615560",
+    "passeport" : [
+        {
+            "passport_id" : "A45465ERG54",
+            "validity_date" : "",
+            "is_valid" : true
+        }
+    ],
+    "vehicle_info" : [
+        {
+            "license_plate" : "1233DC33",
+            "vehicule_type" : "Car Transporter"
+        }
+    ],
+    "merchandise_possession" : true,
+    "merchandise_declaration_form" : [
+        {
+            "total_weight" : 100000,
+            "merchandises_list" : [
+                {
+                    "merchandise_type" : "Animaux vivants et produit du règne animal",
+                    "merchandise_name" : "Côte d'agneau",
+                    "weight" : 50000,
+                    "quantity" : 1000
+                },
+                {}
+            ]
+        }
+    ],
+    "safety_form" : [
+        {
+            "social_network" : [
+                {
+                    "twitter" : "@thibaultGarrot",
+                    "instagram" : "thibaultgarrot",
+                    "facebook" : "Thibault Garrot"
+                }
+            ],
+            "questions" : [
+                {
+                    "answer_1" : "no"
+                }
+            ]
+        }
+    ]
+}

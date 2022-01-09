@@ -1,0 +1,68 @@
+{
+    "$id" : "https://api.polyfrontier.me/",
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "FBCA JSON Schema",
+    "description": "A generic semantic of an official FBCA (French-Britannic Crossing Authorization)",
+    "type": "object",
+    "required": [ "firstName", "lastName", "email", "phone", "passportNumber", "transportType", "crossingReason", "startDate", "endDate", "valid"],
+    "additionalProperties": false,
+    "properties": {
+        "id": {
+            "type": "integer",
+            "description": "FBCA's id",
+            "const": 0
+        },
+        "firstName" : {
+            "type" : "string",
+            "minLength" : 1,
+            "description" : "User's first name"
+        },
+        "lastName" : {
+            "type" : "string",
+            "minLength" : 1,
+            "description" : "User's last name"
+        },
+        "email" : {
+            "type" : "string",
+            "format": "email",
+            "minLength" : 1,
+            "maxLength": 127,
+            "description" : "User's email"
+        },
+        "phone" : {
+            "type": "string",
+            "minLength" : 1,
+            "pattern":"^[0-9]{10}$",
+            "description" : "User's phone number"
+        },
+        "passportNumber" : {
+            "type" : "string",
+            "pattern" : "^[0-9]{2}[A-Z]{2}[0-9]{5}$",
+            "description" : "User's passport"
+        },
+        "transportType" : {
+            "type": "string",
+            "description" : "The type of transport chosen by the user",
+            "enum": ["CAR", "BIKE", "TRAIN", "AIRPLANE", "BOAT"] 
+        },
+        "crossingReason" : {
+            "type" : "string",
+            "description" : "The reason for crossing the border",
+            "enum": ["FAMILY", "TOURISM", "HOBBIES", "BUSINESS", "SPORT", "EDUCATION", "HEALTH", "ART", "CULTURE", "OTHER"]
+        },
+        "startDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "The date when the user will cross the border"
+        },
+        "endDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "The date when the user will leave the country"
+        },
+        "valid" : {
+            "type" : "boolean",
+            "description" : "Validity of the FBCA"
+        }
+  }
+}

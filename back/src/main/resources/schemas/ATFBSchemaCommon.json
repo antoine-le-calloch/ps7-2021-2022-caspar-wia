@@ -1,17 +1,11 @@
 {
-    "$id" : "https://api.polyfrontier.me/",
+    "$id" : "#FBCACommon",
     "$schema": "http://json-schema.org/draft-07/schema",
-    "title": "FBCA JSON Schema",
-    "description": "A generic semantic of an official FBCA (French-Britannic Crossing Authorization)",
+    "title": "FBCA Required JSON Schema",
+    "description": "All the common properties for a FBCA (French-Britannic Crossing Authorization)",
     "type": "object",
-    "required": [ "firstName", "lastName", "email", "phone", "passportNumber", "transportType", "crossingReason", "startDate", "endDate", "valid"],
-    "additionalProperties": false,
+    "required": [ "firstName", "lastName", "email", "phone", "passportNumber", "transportType", "crossingReason", "expirationDate", "valid", "state"],
     "properties": {
-        "id": {
-            "type": "integer",
-            "description": "FBCA's id",
-            "const": 0
-        },
         "firstName" : {
             "type" : "string",
             "minLength" : 1,
@@ -50,19 +44,34 @@
             "description" : "The reason for crossing the border",
             "enum": ["FAMILY", "TOURISM", "HOBBIES", "BUSINESS", "SPORT", "EDUCATION", "HEALTH", "ART", "CULTURE", "OTHER"]
         },
-        "startDate" : {
+        "expirationDate" : {
             "type" : "string",
             "format" : "date",
-            "description" : "The date when the user will cross the border"
-        },
-        "endDate" : {
-            "type" : "string",
-            "format" : "date",
-            "description" : "The date when the user will leave the country"
+            "description" : "The date when the FBCA becomes invalid"
         },
         "valid" : {
             "type" : "boolean",
             "description" : "Validity of the FBCA"
+        },
+        "state" : {
+            "type": "string",
+            "description": "Current FBCA's state",
+            "enum": ["WAITING_FOR_APPROVAL", "ACCEPTED", "DECLINED"]
+        },
+        "freights": {
+            "anyOf": [
+                {
+                    "type": "array",
+                    "description": "FBCA's freights",
+                    "items": {
+                        "type": "object",
+                        "$ref": "FreightSchema.json"
+                    }
+                },
+                {
+                    "const": null
+                }
+            ]
         }
   }
 }

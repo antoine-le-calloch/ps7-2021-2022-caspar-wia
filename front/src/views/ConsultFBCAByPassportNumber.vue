@@ -11,22 +11,22 @@
     </div>
     <div v-else><br></div>
   </div>
-  <button type="button" @click="searchATFB()">Rechercher</button>
+  <button type="button" @click="searchFBCA()">Rechercher</button>
   <RouteButton v-bind:msg="'Annuler'" v-bind:route="'/'" ></RouteButton>
 </template>
 
 <script lang="ts">
 
 import RouteButton from '@/components/RouteButton.vue';
-import { goTo } from '@/utils/utils';
 import { Options, Vue } from 'vue-class-component';
+import FBCAService from "@/service/FBCA.service";
 
 @Options({
   components: {
     RouteButton
   },
 })
-export default class SearchATFBByPassport extends Vue {
+export default class ConsultFBCAByPassportNumber extends Vue {
   private passport2FirstNumbers: string = ''
   private passport2letters: string = ''
   private passport5LastNumbers: string = ''
@@ -58,18 +58,25 @@ export default class SearchATFBByPassport extends Vue {
     this.passport5LastNumbers = ''
   }
 
-  private searchATFB() : void {
+  private searchFBCA() : void {
     if (this.passport2FirstNumbers.length != 2 || this.passport2letters.length != 2 || this.passport5LastNumbers.length != 5){
       this.isPassportNumberValid = false;
     } else {
       const passportNumber: string = this.passport2FirstNumbers + this.passport2letters + this.passport5LastNumbers;
-      this.$router.push({ path: `/ATFB/${passportNumber}` });
+      FBCAService.isFBCAValid(passportNumber).then( (returnValue) => {
+        this.processReturnValue(returnValue);
+      }).catch(() => {
+        alert("Ce numéro de passeport ne correspond à aucune ATFB");
+      });
     }
     this.resetInput();
   }
 
-  back(): void {
-    goTo(this.$router, '/searchATFB');
+  processReturnValue(returnValue : any) : void {
+    if(returnValue.data)
+      alert("Cette ATFB est valide");
+    else
+      alert("Cette ATFB n'est pas valide");
   }
 }
 </script>

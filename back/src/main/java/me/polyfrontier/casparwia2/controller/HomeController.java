@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/")
 public class HomeController {
 
+    /**
+     * Default route
+     * @return Information of the API
+     */
     @GetMapping("/")
     public String home() {
         return "Welcome to PolyFrontier.\n\nThe API is up and running.\n\nIt is intended to be used by Caspar WIA2. It's access is strictly limited to the Caspar WIA2 team.";

@@ -4,7 +4,7 @@ name: Back-end CI
 
 on:
   push:
-    branches: [ master, dev, 28-ci ]
+    branches: [ master, dev ]
 defaults:
   run:
     working-directory: back
@@ -54,6 +54,7 @@ jobs:
   lint-api:
     runs-on: ubuntu-latest
     needs: [ compile-api, test-api, test-api ]
+    continue-on-error: true
 
     steps:
       - uses: actions/checkout@v2

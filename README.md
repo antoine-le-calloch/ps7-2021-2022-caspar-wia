@@ -98,5 +98,5 @@ A user/technical story is finished when
 
 |       Sprint        | #1  | #2  | #3  |
 |        :---:        | :-: | :-: | :-: |
-| Amount of planified points |  91 |  X |     |
-| Amount of points delivered  |  83 |     |     |
+| Amount of planified points |  91 |  42 |     |
+| Amount of points delivered  |  83 |  35   |     |

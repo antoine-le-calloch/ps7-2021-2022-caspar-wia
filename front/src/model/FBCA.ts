@@ -1,3 +1,4 @@
+import { Freight } from "./Freight";
 
 export default interface FBCA {
     id?: number;
@@ -6,9 +7,11 @@ export default interface FBCA {
     email: string;
     phone: string;
     passportNumber: string;
-    startDate: string;
-    endDate: string;
+    expirationDate: string;
     crossingReason: string;
     transportType: string;
     valid: boolean;
+    state: string;
+    declinedReason?: string;
+    freights?: Freight[];
 }

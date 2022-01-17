@@ -1,0 +1,29 @@
+{
+    "$id" : "#Freight",
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "Freight JSON Schema",
+    "description": "A generic semantic for the freight of a FBCA",
+    "type": "object",
+    "required": ["type", "name", "weight"],
+    "properties": {
+        "type": {
+            "type": "string",
+            "description": "Freight's type",
+            "enum": ["S1", "S2", "S3", "S4", "S5", "S6", "S7", "S8", "S9", "S10", "S11", "S12", "S13", "S14", "S15",
+                     "S16", "S17", "S18", "S19", "S20", "S21"]
+        },
+        "name": {
+            "type": "string",
+            "description": "Freight's name",
+            "minLength": 1,
+            "not": {
+                "const": null
+            }
+        },
+        "weight": {
+            "type": "number",
+            "description": "Freight's weight",
+            "minimum": 1
+        }
+    }
+}

@@ -3,7 +3,10 @@ package me.polyfrontier.casparwia2.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
+import java.time.Instant;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "FBCA")
@@ -28,13 +31,9 @@ public class FBCAEntity {
     private String passportNumber;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    @Column(name = "start_date")
-    private Date startDate;
-
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    @Column(name = "end_date")
-    private Date endDate;
-
+    @Column(name = "expiration_date")
+    private Date expirationDate;
+            
     @Column(name = "reason")
     private FBCAReason crossingReason;
 
@@ -44,34 +43,50 @@ public class FBCAEntity {
     @Column(name = "valid")
     private boolean valid;
 
+    @Column(name = "state")
+    private FBCAState state;
+
+    @Column(name = "declined_reason")
+    private String declinedReason;
+
+    @ElementCollection
+    @CollectionTable(name = "fbca_freights", joinColumns = @JoinColumn(name = "fbca_id"))
+    private Set<Freight> freights = new HashSet<>();
+
     public FBCAEntity() {
     }
 
-    public FBCAEntity(long id, String firstName, String lastName, String email, String phone, String passportNumber, Date startDate, Date endDate, FBCAReason crossingReason, FBCATransport transportType, boolean valid) {
+    public FBCAEntity(long id, String firstName, String lastName, String email,
+                      String phone, String passportNumber, Date expirationDate, FBCAReason crossingReason,
+                      FBCATransport transportType, boolean valid, FBCAState state, String declinedReason) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phone = phone;
         this.passportNumber = passportNumber;
-        this.startDate = startDate;
-        this.endDate = endDate;
+        this.expirationDate = expirationDate;
         this.crossingReason = crossingReason;
         this.transportType = transportType;
         this.valid = valid;
+        this.state = state;
+        this.declinedReason = declinedReason;
     }
 
-    public FBCAEntity(String firstName, String lastName, String email, String phone, String passportNumber, Date startDate, Date endDate, FBCAReason crossingReason, FBCATransport transportType, boolean valid) {
+    public FBCAEntity(String firstName, String lastName, String email,
+                      String phone, String passportNumber, Date expirationDate, FBCAReason crossingReason,
+                      FBCATransport transportType, boolean valid, FBCAState state, Set<Freight> freights) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phone = phone;
         this.passportNumber = passportNumber;
-        this.startDate = startDate;
-        this.endDate = endDate;
+        this.expirationDate = expirationDate;
         this.crossingReason = crossingReason;
         this.transportType = transportType;
         this.valid = valid;
+        this.state = state;
+        this.freights = freights;
     }
 
     public long getId() {
@@ -100,9 +115,7 @@ public class FBCAEntity {
 
     public String getPassportNumber() { return passportNumber; }
 
-    public Date getStartDate() { return startDate; }
-
-    public Date getEndDate() { return endDate; }
+    public Date getExpirationDate() { return expirationDate; }
 
     public FBCAReason getCrossingReason() {
         return crossingReason;
@@ -111,6 +124,27 @@ public class FBCAEntity {
     public FBCATransport getTransportType() { return transportType; }
 
     public boolean isValid() {
+        return valid;
+    }
+    public FBCAState getState() { return state; }
+
+    public String getDeclinedReason() {
+        return declinedReason;
+    }
+
+    public Set<Freight> getFreights() {
+        return freights;
+    }
+
+    /**
+     * !!! This function is also a setter
+     * If the FBCA is expired, this function sets it to Invalid
+     * @return Whether the FBCA is invalid or not
+     */
+    public boolean canBeUsed() {
+        if(expirationDate.before(Date.from(Instant.now()))) {
+            this.valid = false;
+        }
         return valid;
     }
 }

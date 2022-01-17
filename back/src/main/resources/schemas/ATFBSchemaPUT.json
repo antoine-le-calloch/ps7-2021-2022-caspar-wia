@@ -1,0 +1,48 @@
+{
+    "$id" : "#FBCAPut",
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "FBCA Put JSON Schema",
+    "description": "A generic semantic of an official FBCA (French-Britannic Crossing Authorization) using when updating",
+    "type": "object",
+    "required": ["id"],
+    "properties": {
+        "id": {
+            "type": "integer",
+            "description": "FBCA's id",
+            "minimum": 1
+        },
+        "state": {
+            "type": "string",
+            "$ref": "ATFBSchemaCommon.json#/properties/state",
+            "default": "ACCEPTED"
+        }
+    },
+    "allOf": [{ "$ref": "ATFBSchemaCommon.json"}],
+    "if": {
+        "properties": {
+            "state": {
+                "const": "DECLINED"
+            }
+        }
+    },
+    "then": {
+        "required": ["declinedReason"],
+        "properties": {
+            "declinedReason":{
+                "type": "string",
+                "description": "Why has the FBCA been declined",
+                "minLength": 4,
+                "not": {
+                    "const": null
+                }
+            }
+        }
+    },
+    "else": {
+        "properties": {
+            "declinedReason": {
+                "const": null
+            }
+        }
+    }
+}

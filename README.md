@@ -20,7 +20,7 @@ Welcome to our PS7 project based on the Polyfrontier common subject.
 
 ## FBCA Basics
 
-- An FBCA (FTBA in French) is the French-Britannic Crossing Authorization.
+- An FBCA (ATFB in French) is the French-Britannic Crossing Authorization.
 
 - Any person crossing the border between France and the United Kingdom needs to fill beforehand a form to get an FBCA. **It's a requirement for a lawful crossing of the border.**
 

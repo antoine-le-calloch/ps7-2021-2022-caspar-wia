@@ -82,6 +82,7 @@ A user/technical story is ready when it contains
     - the moscow
     - the epic
     - TS or US
+ - the creation of a special branch
 
 A spike is ready as soon as the associated issue contains
 	- a description of the search to be performed.
@@ -90,7 +91,7 @@ A spike is ready as soon as the associated issue contains
 A user/technical story is finished when
 
 - the acceptance tests are passed
-- the story is integrated in the main branch
+- the story is integrated in the dev branch (with a PR request)
 - the new and old unit tests pass
 - the build of the continuous integration passes
 
